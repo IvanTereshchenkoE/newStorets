@@ -2,12 +2,7 @@ import React from "react";
 import TextField from "@mui/material/TextField";
 import Stack from "@mui/material/Stack";
 import Autocomplete from "@mui/material/Autocomplete";
-import styled from "styled-components";
-
-const Prof = styled.div`
-  margin-top: 25px;
-  margin-bottom: 25px;
-`;
+import { Prof } from "../../styles/styled";
 
 export default function Professionalskill() {
   const professionalskill = [

@@ -1,34 +1,23 @@
 import React, { useEffect } from "react";
-import { useActions } from "../hooks/useAction";
+import { useDispatch } from "react-redux";
 import { useTypeSelector } from "../hooks/useTypeSelector";
-import { fetchJobs } from "../store/action-creators/jobs";
 import styled from "styled-components";
 import JobsCard from "./JobsCard";
+import { setSearchesJobs } from "../store/action/setSearches";
+import { response } from "../API/axios";
 
-const List = styled.div`
-`;
+const List = styled.div``;
 
 const JobsList: React.FC = () => {
-  const { error, jobs, loading } = useTypeSelector(state => state.jobs);
-
-  const { fetchJobs } = useActions();
-
+  const dispatch = useDispatch();
   useEffect(() => {
-    fetchJobs();
-  }, []);
-
-  if (loading) {
-    return <h1>Идет загрузка</h1>;
-  }
-
-  if (error) {
-    return <h1>{error}</h1>;
-  }
-
+    response.then(res => dispatch(setSearchesJobs(res.data)));
+  }, [dispatch]);
+  const { jobs } = useTypeSelector(state => state.jobs);
   return (
     <List>
-      {jobs.map(jobs => (
-        <JobsCard jobs={jobs}></JobsCard>
+      {jobs.map((jobs: { id: any }) => (
+        <JobsCard key={jobs.id} jobs={jobs}></JobsCard>
       ))}
     </List>
   );

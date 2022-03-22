@@ -1,22 +1,16 @@
-import { JobsAction, JobsActionTypes, JobsState } from "../../types/jobs";
+import { FetchJobsAction, JobsActionTypes, JobsState } from "../../types/jobs";
 
 const initialState: JobsState = {
   jobs: [],
-  loading: false,
-  error: null,
 };
 
 export const jobsReducer = (
   state = initialState,
-  action: JobsAction
+  action: FetchJobsAction
 ): JobsState => {
   switch (action.type) {
     case JobsActionTypes.FETCH_JOBS:
-      return { loading: true, error: null, jobs: [] };
-    case JobsActionTypes.FETCH_JOBS_SUCCESS:
-      return { loading: false, error: null, jobs: action.payload };
-    case JobsActionTypes.FETCH_JOBS_ERROR:
-      return { loading: false, error: action.payload, jobs: [] };
+      return { jobs: action.payload };
     default:
       return state;
   }

@@ -1,12 +1,7 @@
-import React from "react";
 import TextField from "@mui/material/TextField";
 import Stack from "@mui/material/Stack";
 import Autocomplete from "@mui/material/Autocomplete";
-import styled from "styled-components";
-
-const Qualy = styled.div`
-  margin-top: 25px;
-`;
+import { Qualy } from "../../styles/styled";
 
 export default function Qualification() {
   const qualifications = [
