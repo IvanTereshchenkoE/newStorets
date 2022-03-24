@@ -5,6 +5,7 @@ import CardActions from "@mui/material/CardActions";
 import CardContent from "@mui/material/CardContent";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
+import { JobsState } from "../types/jobs";
 
 const bull = (
   <Box
@@ -15,7 +16,14 @@ const bull = (
   </Box>
 );
 
-export default function JobsCard({ jobs }: any) {
+interface Props {
+  title: string;
+  shordiscription: string;
+  price: number;
+  key: number;
+}
+
+const JobsCard: React.FC<Props> = ({ title, shordiscription, price, key }) => {
   return (
     <Card sx={{ minWidth: 275 }}>
       <CardContent>
@@ -23,16 +31,18 @@ export default function JobsCard({ jobs }: any) {
           New Jobs
         </Typography>
         <Typography variant="h5" component="div">
-          {jobs.title}
+          {title}
         </Typography>
         <Typography sx={{ mb: 1.5 }} color="text.secondary">
-          adjective
+          adjective {price}
         </Typography>
-        <Typography variant="body2">{jobs.shordiscription}</Typography>
+        <Typography variant="body2">{shordiscription}</Typography>
       </CardContent>
       <CardActions>
         <Button size="small">Learn More</Button>
       </CardActions>
     </Card>
   );
-}
+};
+
+export default JobsCard;

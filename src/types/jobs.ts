@@ -1,5 +1,5 @@
 export type JobsState = {
-  jobs: any[];
+  jobs: Job[];
 };
 
 export enum JobsActionTypes {
@@ -8,6 +8,14 @@ export enum JobsActionTypes {
 
 export type FetchJobsAction = {
   type: JobsActionTypes.FETCH_JOBS;
-  payload: any[];
+  payload: Job[];
+};
+
+export type Job = {
+  id: number;
+  title: string;
+  shordiscription: string;
+  Description: string;
+  price: number;
 };
 
