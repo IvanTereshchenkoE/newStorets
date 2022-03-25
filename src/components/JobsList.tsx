@@ -14,10 +14,10 @@ const JobsList = () => {
     <List>
       {list.map((job: Job) => (
         <JobsCard
-          key={job.id}
+          id={job.id}
           title={job.title}
-          shortDiscription={job.shortDiscription}
-          price={job.price}
+          company={job.company}
+          salary={job.salary}
         ></JobsCard>
       ))}
     </List>

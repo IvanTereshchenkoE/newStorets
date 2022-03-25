@@ -17,26 +17,26 @@ const bull = (
 );
 
 interface Props {
+  id: number;
   title: string;
-  shortDiscription: string;
-  price: number;
-  key: number;
+  company: string;
+  salary: number;
 }
 
-const JobsCard: React.FC<Props> = ({ title, shortDiscription, price, key }) => {
+const JobsCard: React.FC<Props> = ({ title, company, salary, id }) => {
   return (
     <Card sx={{ minWidth: 275 }}>
       <CardContent>
         <Typography sx={{ fontSize: 14 }} color="text.secondary" gutterBottom>
-          New Jobs
+          New Jobs {id}
         </Typography>
         <Typography variant="h5" component="div">
           {title}
         </Typography>
         <Typography sx={{ mb: 1.5 }} color="text.secondary">
-          adjective {price}
+          adjective {salary}
         </Typography>
-        <Typography variant="body2">{shortDiscription}</Typography>
+        <Typography variant="body2">{company}</Typography>
       </CardContent>
       <CardActions>
         <Button size="small">Learn More</Button>
