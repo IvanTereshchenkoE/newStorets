@@ -16,10 +16,12 @@ type State = {
 
 export default function useJobs(): State {
   const dispatch = useDispatch();
+
   const { jobs } = useTypeSelector(state => state.jobs);
+
   useEffect(() => {
     getJobs().then(res => dispatch(setSearchesJobs(res.data)));
   }, [dispatch]);
-  console.log(jobs);
+  
   return { list: jobs };
 }
