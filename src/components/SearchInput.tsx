@@ -12,7 +12,7 @@ export default function FreeSolo() {
       <Autocomplete
         id="free-solo-demo"
         freeSolo
-        options={jobs.map((jobs: { title: any }) => jobs.title)}
+        options={jobs.map(jobs => jobs.title)}
         renderInput={params => <TextField {...params} label="Searches jobs" />}
       />
     </Stack>

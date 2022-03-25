@@ -5,15 +5,19 @@ import { response } from "../API/axios";
 import JobsCard from "../components/JobsCard";
 import { setSearchesJobs } from "../store/action/setSearches";
 import { useTypeSelector } from "./useTypeSelector";
-import { JobsState } from "../types/jobs";
+import { Job, JobsState } from "../types/jobs";
 import JobsList from "../components/JobsList";
 
-export default function useJobs(): any {
+type State = {
+  list: Job[];
+};
+
+export default function useJobs(): State {
   const dispatch = useDispatch();
+  const { jobs } = useTypeSelector(state => state.jobs);
   useEffect(() => {
     response.then(res => dispatch(setSearchesJobs(res.data)));
   }, [dispatch]);
-  const { jobs } = useTypeSelector(state => state.jobs);
   console.log(jobs);
-  return jobs;
+  return { list: jobs };
 }

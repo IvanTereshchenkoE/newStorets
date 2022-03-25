@@ -8,7 +8,7 @@ type Props = {
 function Layout({ children }: Props) {
   return (
     <Container>
-      <Header></Header>
+      <Header />
       {children}
     </Container>
   );

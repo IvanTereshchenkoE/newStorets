@@ -1,6 +1,5 @@
 import SearchInput from "../components/SearchInput";
 import SortSearch from "../components/SortSearch";
-
 import Sidebar from "../components/Sidebar";
 import JobsList from "../components/JobsList";
 import Layout from "../components/Layout/Layout";

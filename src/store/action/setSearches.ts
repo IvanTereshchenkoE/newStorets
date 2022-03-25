@@ -1,8 +1,13 @@
-import { FetchJobsAction, JobsActionTypes, JobsState } from "../../types/jobs";
+import {
+  FetchJobsAction,
+  Job,
+  JobsActionTypes,
+  JobsState,
+} from "../../types/jobs";
 
-export function setSearchesJobs(payload: any[]): FetchJobsAction {
+export function setSearchesJobs(list): FetchJobsAction {
   return {
     type: JobsActionTypes.FETCH_JOBS,
-    payload,
+    payload: list,
   };
 }
