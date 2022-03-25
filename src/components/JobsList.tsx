@@ -1,6 +1,9 @@
 import styled from "styled-components";
+
 import JobsCard from "./JobsCard";
+
 import useJobs from "../hooks/useJobs";
+
 import { Job } from "../types/jobs";
 
 const List = styled.div``;
@@ -9,12 +12,12 @@ const JobsList = () => {
   const { list } = useJobs();
   return (
     <List>
-      {list.map((jobs: Job) => (
+      {list.map((job: Job) => (
         <JobsCard
-          key={jobs.id}
-          title={jobs.title}
-          shordiscription={jobs.shordiscription}
-          price={jobs.price}
+          key={job.id}
+          title={job.title}
+          shortDiscription={job.shortDiscription}
+          price={job.price}
         ></JobsCard>
       ))}
     </List>

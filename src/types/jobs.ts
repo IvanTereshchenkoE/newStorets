@@ -14,8 +14,8 @@ export type FetchJobsAction = {
 export type Job = {
   id: number;
   title: string;
-  shordiscription: string;
-  Description: string;
+  shortDiscription: string;
+  fullDiscription: string;
   price: number;
 };
 

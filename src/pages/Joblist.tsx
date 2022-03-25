@@ -3,6 +3,7 @@ import SortSearch from "../components/SortSearch";
 import Sidebar from "../components/Sidebar";
 import JobsList from "../components/JobsList";
 import Layout from "../components/Layout/Layout";
+
 import { Content, Main, SearchPanel } from "../styles/styled";
 
 function Joblist() {

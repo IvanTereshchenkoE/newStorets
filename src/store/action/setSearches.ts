@@ -1,9 +1,4 @@
-import {
-  FetchJobsAction,
-  Job,
-  JobsActionTypes,
-  JobsState,
-} from "../../types/jobs";
+import { FetchJobsAction, JobsActionTypes } from "../../types/jobs";
 
 export function setSearchesJobs(list): FetchJobsAction {
   return {
