@@ -1,9 +1,18 @@
 import Layout from "../components/Layout/Layout";
+import SidebarResume from "../components/ResumeComponent/SidebarResume";
+import { Content, Main } from "../styles/styled";
 
 function Specialist() {
   return (
     <>
-      <Layout>dfgdfgdf</Layout>
+      <Layout>
+        <Content>
+          <Main>
+            <div>asdasdas</div>
+          </Main>
+          <SidebarResume></SidebarResume>
+        </Content>
+      </Layout>
     </>
   );
 }

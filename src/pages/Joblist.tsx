@@ -1,9 +1,8 @@
-import SearchInput from "../components/SearchInput";
-import SortSearch from "../components/SortSearch";
-import Sidebar from "../components/Sidebar";
-import JobsList from "../components/JobsList";
+import JobsList from "../components/JobsComponent/JobsList";
+import SearchInput from "../components/JobsComponent/SearchInput";
+import SortSearch from "../components/JobsComponent/SortSearch";
 import Layout from "../components/Layout/Layout";
-
+import SidebarJob from "../components/SidebarJobComponents/SidebarJob";
 import { Content, Main, SearchPanel } from "../styles/styled";
 
 function Joblist() {
@@ -18,7 +17,7 @@ function Joblist() {
             </SearchPanel>
             <JobsList></JobsList>
           </Main>
-          <Sidebar></Sidebar>
+          <SidebarJob />
         </Content>
       </Layout>
     </>
