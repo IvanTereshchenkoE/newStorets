@@ -7,7 +7,7 @@ import { setSearchesJobs } from "../store/action/setSearches";
 import { useTypeSelector } from "./useTypeSelector";
 
 import { Job } from "../types/jobs";
-import { getJobs1 } from "../API/quires1";
+import { getJobs } from "../API/quires";
 import React from "react";
 
 type State = {
@@ -20,7 +20,7 @@ export default function useJobs(): State {
   const { jobs } = useTypeSelector(state => state.jobs);
 
   useEffect(() => {
-    getJobs1().then(res => dispatch(setSearchesJobs(res.data)));
+    getJobs().then(res => dispatch(setSearchesJobs(res.data)));
   }, [dispatch]);
 
   return { list: jobs };

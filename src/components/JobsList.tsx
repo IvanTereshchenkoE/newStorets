@@ -12,13 +12,14 @@ const JobsList = () => {
   const { list } = useJobs();
   return (
     <List>
-      {list.map((job: Job) => (
+      {list.map(job => (
         <JobsCard
+          key={job.id}
           id={job.id}
           title={job.title}
           company={job.company}
           salary={job.salary}
-        ></JobsCard>
+        />
       ))}
     </List>
   );
