@@ -20,12 +20,18 @@ export type State = {
   list: Resume[];
 };
 
+export enum Level {
+  Junior = "Junior",
+  Middle = "Middle",
+  Senior = "Senior",
+}
+
 export type Resume = {
   id: number;
   name: string;
   experience: number;
-  level: string;
-  tags: [];
+  level: keyof typeof Level;
+  tags: string[];
 };
 
 export type setResumeAction = {

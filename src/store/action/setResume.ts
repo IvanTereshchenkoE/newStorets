@@ -5,7 +5,7 @@ type Resume = {
   name: string;
   experience: number;
   level: string;
-  tags: [];
+  tags: string[];
 };
 
 type Action = {

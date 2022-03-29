@@ -25,7 +25,14 @@ interface Props {
 
 const JobsCard: React.FC<Props> = ({ title, company, salary, id }) => {
   return (
-    <Card sx={{ minWidth: 275 }}>
+    <Card
+      sx={{ minWidth: 275 }}
+      style={{
+        marginTop: 10,
+        marginRight: 10,
+        borderRadius: 10,
+      }}
+    >
       <CardContent>
         <Typography sx={{ fontSize: 14 }} color="text.secondary" gutterBottom>
           New Jobs {id}

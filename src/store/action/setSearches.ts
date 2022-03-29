@@ -1,4 +1,4 @@
-import { FetchJobsAction, JobsActionTypes } from "../../types/jobs";
+import { JobsActionTypes } from "../../types/jobs";
 
 export default interface Job {
   id: number;
