@@ -1,10 +1,17 @@
-import { JobsActionTypes } from "../../types/jobs";
+import { JobsActionTypes, Level } from "../../types/jobs";
 
 export default interface Job {
   id: number;
   title: string;
   company: string;
   salary: number;
+  level: keyof typeof Level;
+  avatar: string;
+  rating: number;
+  activity: string[];
+  created_at: string;
+  skills: string[];
+  currency: string;
 }
 
 type List = {

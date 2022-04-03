@@ -1,9 +1,3 @@
-import TextField from "@mui/material/TextField";
-import Stack from "@mui/material/Stack";
-import Autocomplete from "@mui/material/Autocomplete";
-
-import { Qualy } from "../../styles/styled";
-import { Level } from "../../types/jobs";
 import {
   FormControl,
   InputLabel,
@@ -12,13 +6,14 @@ import {
   Select,
   SelectChangeEvent,
 } from "@mui/material";
+import { Level } from "../../store/reducers/resumeReducer";
 
 type Props = {
   selectedLevel: keyof typeof Level | "";
   handleChangeLevel(param: string): void;
 };
 
-const Qualification = ({ selectedLevel, handleChangeLevel }: Props) => {
+const QualificationsResume = ({ selectedLevel, handleChangeLevel }: Props) => {
   const handleChangeLevelResume = (e: SelectChangeEvent) => {
     handleChangeLevel(e.target.value as string);
   };
@@ -44,4 +39,4 @@ const Qualification = ({ selectedLevel, handleChangeLevel }: Props) => {
   );
 };
 
-export default Qualification;
+export default QualificationsResume;

@@ -4,14 +4,22 @@ import { Level, Resume } from "../store/reducers/resumeReducer";
 import { Job } from "../types/jobs";
 
 export type FilterType = {
+  experience?: number;
   level: keyof typeof Level | "";
   tags: string[];
 };
 
-export const getJobs = (): AxiosPromise<Job[]> => axios.get("/");
+export const getJobs = (queryParams: any = {}): AxiosPromise<Job[]> =>
+  axios.get("/jobs", {
+    params: queryParams,
+  });
 
 export const getResumes = (
-  queryParams: FilterType = { level: "", tags: [] }
+  queryParams: FilterType = {
+    level: "",
+    tags: [],
+    experience: 2,
+  }
 ): AxiosPromise<Resume[]> =>
   axios.get("/resumes", {
     params: queryParams,

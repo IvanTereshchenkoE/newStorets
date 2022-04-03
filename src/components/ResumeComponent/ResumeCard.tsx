@@ -5,11 +5,8 @@ import styled from "styled-components";
 import CardMedia from "@mui/material/CardMedia";
 import Box from "@mui/material/Box";
 import Card from "@mui/material/Card";
-import CardActions from "@mui/material/CardActions";
 import CardContent from "@mui/material/CardContent";
-import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
-import { red } from "@mui/material/colors";
 
 const CardPosition = styled.div`
   display: flex;
@@ -53,9 +50,19 @@ interface Props {
   experience: number;
   level: string;
   tags: string[];
+  avatar: string;
 }
 
-const ResumeCard: React.FC<Props> = ({ id, name, experience, level, tags }) => {
+const ResumeCard: React.FC<Props> = ({
+  id,
+  name,
+  experience,
+  level,
+  tags,
+  avatar,
+}) => {
+  const avatar1 =
+    "https://loremflickr.com/cache/resized/defaultImage.small_300_300_nofilter.jpg";
   return (
     <Card
       sx={{ minWidth: 275 }}
@@ -70,7 +77,7 @@ const ResumeCard: React.FC<Props> = ({ id, name, experience, level, tags }) => {
           <CardMedia
             component="img"
             height="100"
-            image="https://img.youtube.com/vi/-cZOdWjFwXw/maxresdefault.jpg"
+            image={avatar1}
             alt="image"
             style={{
               borderRadius: 90,

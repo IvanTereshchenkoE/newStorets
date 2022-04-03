@@ -25,10 +25,9 @@ export default function SearchesValute() {
           label="Age"
           onChange={handleChange}
         >
-          <MenuItem value={10}>Rub</MenuItem>
-          <MenuItem value={20}>Dollars</MenuItem>
-          <MenuItem value={30}>Eur</MenuItem>
-          <MenuItem value={40}>Tng</MenuItem>
+          <MenuItem value={10}>RUB</MenuItem>
+          <MenuItem value={20}>USD</MenuItem>
+          <MenuItem value={30}>EUR</MenuItem>
         </Select>
       </InputValute>
       <FormControlLabel control={<Checkbox />} label="Указана" />

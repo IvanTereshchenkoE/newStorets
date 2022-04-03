@@ -20,6 +20,13 @@ const JobsList = () => {
           title={job.title}
           company={job.company}
           salary={job.salary}
+          level={job.level}
+          avatar={job.avatar}
+          rating={job.rating}
+          activity={job.activity}
+          created_at={job.created_at}
+          skills={job.skills}
+          currency={job.currency}
         ></JobsCard>
       ))}
     </List>

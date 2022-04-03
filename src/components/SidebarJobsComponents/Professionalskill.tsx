@@ -4,7 +4,7 @@ import Autocomplete from "@mui/material/Autocomplete";
 
 import { Prof } from "../../styles/styled";
 
-export default function Professionalskill() {
+export default function ProfessionalSkill() {
   const professionalskill = [
     { title: "skill" },
     { title: "skill" },

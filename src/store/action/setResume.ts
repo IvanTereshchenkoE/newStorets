@@ -6,6 +6,7 @@ type Resume = {
   experience: number;
   level: string;
   tags: string[];
+  avatar: string;
 };
 
 type Action = {

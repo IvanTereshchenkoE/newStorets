@@ -17,6 +17,7 @@ const ResumesList = () => {
           experience={resume.experience}
           level={resume.level}
           tags={resume.tags}
+          avatar={resume.avatar}
         ></ResumeCard>
       ))}
     </List>

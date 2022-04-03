@@ -24,6 +24,7 @@ export enum Level {
   Junior = "Junior",
   Middle = "Middle",
   Senior = "Senior",
+  skill = "skill",
 }
 
 export type Resume = {
@@ -32,6 +33,7 @@ export type Resume = {
   experience: number;
   level: keyof typeof Level;
   tags: string[];
+  avatar: string;
 };
 
 export type setResumeAction = {

@@ -2,7 +2,7 @@ import FormGroup from "@mui/material/FormGroup";
 import FormControlLabel from "@mui/material/FormControlLabel";
 import Checkbox from "@mui/material/Checkbox";
 
-function Fieldofactivity() {
+function FieldOfActivity() {
   return (
     <>
       <FormGroup>
@@ -10,7 +10,6 @@ function Fieldofactivity() {
         <FormControlLabel control={<Checkbox />} label="Frontend" />
         <FormControlLabel control={<Checkbox />} label="Backend" />
         <FormControlLabel control={<Checkbox />} label="Applications" />
-        <FormControlLabel control={<Checkbox />} label="Software" />
         <FormControlLabel control={<Checkbox />} label="Testing" />
         <FormControlLabel control={<Checkbox />} label="Administration" />
       </FormGroup>
@@ -18,4 +17,4 @@ function Fieldofactivity() {
   );
 }
 
-export default Fieldofactivity;
+export default FieldOfActivity;
