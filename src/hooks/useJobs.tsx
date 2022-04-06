@@ -15,12 +15,14 @@ type SearchType = {
   skills: string[];
   salary: number;
   activity: string[];
+
   page: number;
 };
 
 type State = {
   list: Job[];
   search: SearchType;
+  total: number;
   handleChangeLevel(value: keyof typeof Level): void;
   handleChangeSalary(value: number): void;
   handleChangeSkills(value: string[]): void;
@@ -36,12 +38,18 @@ export default function useJobs(): State {
     activity: [],
     page: 1,
   });
+
+  const [total, setTotal] = useState<number>(0);
+
   const dispatch = useDispatch();
 
   const { jobs } = useTypeSelector(state => state.jobs);
 
   useEffect(() => {
-    getJobs(search).then(res => dispatch(setSearchesJobs(res.data.list)));
+    getJobs(search).then(res => {
+      dispatch(setSearchesJobs(res.data.list));
+      setTotal(res.data.total);
+    });
   }, [dispatch]);
 
   const handleChangeLevel = (value: keyof typeof Level | "") => {
@@ -101,6 +109,7 @@ export default function useJobs(): State {
   return {
     list: jobs,
     search,
+    total,
     handleChangeLevel,
     handleChangeSalary,
     handleChangeSkills,

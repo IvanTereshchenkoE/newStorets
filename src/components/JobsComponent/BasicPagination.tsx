@@ -5,9 +5,11 @@ import { useState } from "react";
 
 type Props = {
   handleChangePage(value: number): void;
+  total: number;
 };
 
-const BasicPagination = ({ handleChangePage }: Props) => {
+const BasicPagination = ({ handleChangePage, total }: Props) => {
+  let count = Math.ceil(total / 25);
   const [page, setPage] = useState(1);
   const handleChange = (
     event: React.ChangeEvent<unknown>,
@@ -18,7 +20,7 @@ const BasicPagination = ({ handleChangePage }: Props) => {
   };
   return (
     <Stack>
-      <Pagination count={10} page={page} onChange={handleChange} />
+      <Pagination count={count} page={page} onChange={handleChange} />
     </Stack>
   );
 };

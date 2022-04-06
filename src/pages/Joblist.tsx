@@ -10,6 +10,7 @@ import { Content, Main, SearchPanel } from "../styles/styled";
 function Joblist() {
   const {
     search,
+    total,
     handleChangeLevel,
     handleChangeSalary,
     handleChangeSkills,
@@ -26,7 +27,10 @@ function Joblist() {
               <SortSearch />
             </SearchPanel>
             <JobsList />
-            <BasicPagination handleChangePage={handleChangePage} />
+            <BasicPagination
+              handleChangePage={handleChangePage}
+              total={total}
+            />
           </Main>
           <SidebarJob
             selectedLevel={search.level}

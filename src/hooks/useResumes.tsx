@@ -9,85 +9,92 @@ import { Level, Resume } from "../store/reducers/resumeReducer";
 
 import { useTypeSelector } from "./useTypeSelector";
 
- type SearchType = {
-   experience?: number;
-   level: keyof typeof Level | "";
-   tags: string[];
- };
+type SearchType = {
+  experience?: number;
+  level: keyof typeof Level | "";
+  tags: string[];
+};
 
- type State = {
-   handleChangeLevel(value: keyof typeof Level): void;
-   handleChangeSkills(value: string[]): void;
-   handleChangeExpiriens(value: number): void;
-   handleChangePage(value: number): void;
-   search: SearchType;
-   list: Resume[];
- };
+type State = {
+  handleChangeLevel(value: keyof typeof Level): void;
+  handleChangeSkills(value: string[]): void;
+  handleChangeExpiriens(value: number): void;
+  handleChangePage(value: number): void;
+  search: SearchType;
+  total: number;
+  list: Resume[];
+};
 
- export const useResumes = (): State => {
-   const [search, setSearch] = useState<SearchType>({
-     level: "",
-     tags: [],
-   });
+export const useResumes = (): State => {
+  const [search, setSearch] = useState<SearchType>({
+    level: "",
+    tags: [],
+  });
 
-   const dispatch = useDispatch();
+  const [total, setTotal] = useState<number>(0);
 
-   const { list } = useTypeSelector(state => state.resume);
+  const dispatch = useDispatch();
 
-   useEffect(() => {
-     getResumes().then(res => dispatch(setResume(res.data.list)));
-   }, [dispatch]);
+  const { list } = useTypeSelector(state => state.resume);
 
-   const handleChangeLevel = (value: keyof typeof Level | "") => {
-     const newSearch = {
-       ...search,
-       level: value,
-     };
-     setSearch(newSearch);
-     getResumes(newSearch).then(res => {
-       dispatch(setResume(res.data.list));
-     });
-   };
+  useEffect(() => {
+    getResumes().then(res => {
+      dispatch(setResume(res.data.list));
+      setTotal(res.data.total);
+    });
+  }, [dispatch]);
 
-   const handleChangeSkills = (tags: []) => {
-     const newSearch = {
-       ...search,
-       tags: tags,
-     };
-     setSearch(newSearch);
-     getResumes(newSearch).then(res => {
-       dispatch(setResume(res.data.list));
-     });
-   };
+  const handleChangeLevel = (value: keyof typeof Level | "") => {
+    const newSearch = {
+      ...search,
+      level: value,
+    };
+    setSearch(newSearch);
+    getResumes(newSearch).then(res => {
+      dispatch(setResume(res.data.list));
+    });
+  };
 
-   const handleChangeExpiriens = (value: number) => {
-     const newSearch = {
-       ...search,
-       experience: value,
-     };
-     setSearch(newSearch);
-     getResumes(newSearch).then(res => {
-       dispatch(setResume(res.data.list));
-     });
-   };
+  const handleChangeSkills = (tags: []) => {
+    const newSearch = {
+      ...search,
+      tags: tags,
+    };
+    setSearch(newSearch);
+    getResumes(newSearch).then(res => {
+      dispatch(setResume(res.data.list));
+    });
+  };
 
-   const handleChangePage = (page: number) => {
-     const newSearch = {
-       ...search,
-       page: page,
-     };
-     setSearch(newSearch);
-     getResumes(newSearch).then(res => {
-       dispatch(setResume(res.data.list));
-     });
-   };
+  const handleChangeExpiriens = (value: number) => {
+    const newSearch = {
+      ...search,
+      experience: value,
+    };
+    setSearch(newSearch);
+    getResumes(newSearch).then(res => {
+      dispatch(setResume(res.data.list));
+    });
+  };
 
-   return {
-     handleChangeLevel,
-     handleChangeSkills,
-     handleChangeExpiriens,
-     handleChangePage,
-     list,
-     search,
-   };
- };
+  const handleChangePage = (page: number) => {
+    const newSearch = {
+      ...search,
+      page: page,
+    };
+    setSearch(newSearch);
+    getResumes(newSearch).then(res => {
+      dispatch(setResume(res.data.list));
+    });
+  };
+
+  return {
+    handleChangeLevel,
+    handleChangeSkills,
+    handleChangeExpiriens,
+    handleChangePage,
+    total,
+    list,
+    search,
+  };
+};

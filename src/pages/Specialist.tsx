@@ -9,6 +9,7 @@ import { Content, Main } from "../styles/styled";
 function Specialist() {
   const {
     search,
+    total,
     handleChangeLevel,
     handleChangeSkills,
     handleChangeExpiriens,
@@ -22,6 +23,7 @@ function Specialist() {
             <SearchResumes></SearchResumes>
             <ResumesList></ResumesList>
             <BasicPagination
+              total={total}
               handleChangePage={handleChangePage}
             ></BasicPagination>
           </Main>
