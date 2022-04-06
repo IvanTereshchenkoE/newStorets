@@ -12,24 +12,28 @@ import React from "react";
 
 type SearchType = {
   level: keyof typeof Level | "";
+  skills: string[];
 };
 
 type State = {
   list: Job[];
   search: SearchType;
   handleChangeLevel(value: keyof typeof Level): void;
+  handleChangeSalary(value: number): void;
+  handleChangeSkills(value: string[]): void;
 };
 
 export default function useJobs(): State {
   const [search, setSearch] = useState<SearchType>({
     level: "",
+    skills: [],
   });
   const dispatch = useDispatch();
 
   const { jobs } = useTypeSelector(state => state.jobs);
 
   useEffect(() => {
-    getJobs().then(res => dispatch(setSearchesJobs(res.data)));
+    getJobs().then(res => dispatch(setSearchesJobs(res.data.list)));
   }, [dispatch]);
 
   const handleChangeLevel = (value: keyof typeof Level | "") => {
@@ -39,9 +43,37 @@ export default function useJobs(): State {
     };
     setSearch(newSearch);
     getJobs(newSearch).then(res => {
-      dispatch(setSearchesJobs(res.data));
+      dispatch(setSearchesJobs(res.data.list));
     });
   };
 
-  return { list: jobs, search, handleChangeLevel };
+  const handleChangeSalary = (value: number) => {
+    const newSearch = {
+      ...search,
+      salary: value,
+    };
+    setSearch(newSearch);
+    getJobs(newSearch).then(res => {
+      dispatch(setSearchesJobs(res.data.list));
+    });
+  };
+
+  const handleChangeSkills = (skills: []) => {
+    const newSearch = {
+      ...search,
+      skills: skills,
+    };
+    setSearch(newSearch);
+    getJobs(newSearch).then(res => {
+      dispatch(setSearchesJobs(res.data.list));
+    });
+  };
+
+  return {
+    list: jobs,
+    search,
+    handleChangeLevel,
+    handleChangeSalary,
+    handleChangeSkills,
+  };
 }

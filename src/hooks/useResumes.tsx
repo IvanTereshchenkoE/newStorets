@@ -30,7 +30,7 @@ import { useTypeSelector } from "./useTypeSelector";
    const { list } = useTypeSelector(state => state.resume);
 
    useEffect(() => {
-     getResumes().then(res => dispatch(setResume(res.data)));
+     getResumes().then(res => dispatch(setResume(res.data.list)));
    }, [dispatch]);
 
    const handleChangeLevel = (value: keyof typeof Level | "") => {
@@ -40,7 +40,7 @@ import { useTypeSelector } from "./useTypeSelector";
      };
      setSearch(newSearch);
      getResumes(newSearch).then(res => {
-       dispatch(setResume(res.data));
+       dispatch(setResume(res.data.list));
      });
    };
 
@@ -51,7 +51,7 @@ import { useTypeSelector } from "./useTypeSelector";
      };
      setSearch(newSearch);
      getResumes(newSearch).then(res => {
-       dispatch(setResume(res.data));
+       dispatch(setResume(res.data.list));
      });
    };
 
@@ -62,7 +62,7 @@ import { useTypeSelector } from "./useTypeSelector";
      };
      setSearch(newSearch);
      getResumes(newSearch).then(res => {
-       dispatch(setResume(res.data));
+       dispatch(setResume(res.data.list));
      });
    };
 

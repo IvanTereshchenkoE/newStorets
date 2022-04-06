@@ -3,11 +3,16 @@ import * as React from "react";
 import Box from "@mui/material/Box";
 import InputLabel from "@mui/material/InputLabel";
 import TextField from "@mui/material/TextField";
+import { Level } from "../../types/jobs";
 
-export default function SortByPrice() {
+type Props = {
+  handleChangeSalary(value: number): void;
+};
+
+export default function SortByPrice({ handleChangeSalary }: Props) {
   const [age, setAge] = React.useState();
   const handleChange = (event: any): void => {
-    setAge(event.target.value as any);
+    handleChangeSalary(event.target.value);
   };
 
   return (

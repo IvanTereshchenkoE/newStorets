@@ -9,7 +9,7 @@ export type FilterType = {
   tags: string[];
 };
 
-export const getJobs = (queryParams: any = {}): AxiosPromise<Job[]> =>
+export const getJobs = (queryParams: any = {}): AxiosPromise =>
   axios.get("/jobs", {
     params: queryParams,
   });
@@ -20,7 +20,7 @@ export const getResumes = (
     tags: [],
     experience: 2,
   }
-): AxiosPromise<Resume[]> =>
+): AxiosPromise =>
   axios.get("/resumes", {
     params: queryParams,
   });

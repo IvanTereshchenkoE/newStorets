@@ -1,6 +1,6 @@
 import FormGroup from "@mui/material/FormGroup";
 
-import SortByPrice from "./SortByPrice";
+import SortByPrice from "./SortBySalary";
 import FieldOfActivity from "./FieldOfActivity";
 import Qualification from "./Qualification";
 import ProfessionalSkill from "./ProfessionalSkill";
@@ -11,10 +11,19 @@ import { Level } from "../../types/jobs";
 
 type Props = {
   selectedLevel: keyof typeof Level | "";
+  selectedSkills: string[];
   handleChangeLevel(param: string): void;
+  handleChangeSalary(param: number): void;
+  handleChangeSkills(param: string[]): void;
 };
 
-function SidebarJob({ selectedLevel, handleChangeLevel }: Props) {
+function SidebarJob({
+  selectedLevel,
+  selectedSkills,
+  handleChangeLevel,
+  handleChangeSalary,
+  handleChangeSkills,
+}: Props) {
   return (
     <>
       <Sitebar>
@@ -24,8 +33,11 @@ function SidebarJob({ selectedLevel, handleChangeLevel }: Props) {
             selectedLevel={selectedLevel}
             handleChangeLevel={handleChangeLevel}
           ></Qualification>
-          <ProfessionalSkill></ProfessionalSkill>
-          <SortByPrice></SortByPrice>
+          <ProfessionalSkill
+            selectedSkills={selectedSkills}
+            handleChangeSkills={handleChangeSkills}
+          ></ProfessionalSkill>
+          <SortByPrice handleChangeSalary={handleChangeSalary}></SortByPrice>
           <SearchesValute></SearchesValute>
         </FormGroup>
       </Sitebar>

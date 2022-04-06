@@ -65,6 +65,7 @@ const JobsCard: React.FC<Props> = ({
   level,
   activity,
   avatar,
+  currency,
 }) => {
   return (
     <Card
@@ -98,7 +99,7 @@ const JobsCard: React.FC<Props> = ({
                 {title}
               </Typography>
               <Typography sx={{ mb: 1.5 }} color="text.secondary">
-                Salary {salary} $
+                Salary {salary} {currency}
               </Typography>
             </MainTitle>
             <MainDiscription>

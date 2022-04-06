@@ -61,8 +61,6 @@ const ResumeCard: React.FC<Props> = ({
   tags,
   avatar,
 }) => {
-  const avatar1 =
-    "https://loremflickr.com/cache/resized/defaultImage.small_300_300_nofilter.jpg";
   return (
     <Card
       sx={{ minWidth: 275 }}
@@ -77,7 +75,7 @@ const ResumeCard: React.FC<Props> = ({
           <CardMedia
             component="img"
             height="100"
-            image={avatar1}
+            image={avatar}
             alt="image"
             style={{
               borderRadius: 90,
