@@ -16,21 +16,23 @@ export default function SearchesValute() {
   };
 
   return (
-    <Box sx={{ maxWidth: 80 }}>
-      <InputValute>
-        <Select
-          labelId="demo-simple-select-label"
-          id="demo-simple-select"
-          value={age}
-          label="Age"
-          onChange={handleChange}
-        >
-          <MenuItem value={10}>RUB</MenuItem>
-          <MenuItem value={20}>USD</MenuItem>
-          <MenuItem value={30}>EUR</MenuItem>
-        </Select>
-      </InputValute>
-      <FormControlLabel control={<Checkbox />} label="Указана" />
-    </Box>
+    <>
+      <Box sx={{ maxWidth: 80 }}>
+        <InputValute>
+          <Select
+            labelId="demo-simple-select-label"
+            id="demo-simple-select"
+            value={age}
+            label="Age"
+            onChange={handleChange}
+          >
+            <MenuItem value={10}>RUB</MenuItem>
+            <MenuItem value={20}>USD</MenuItem>
+            <MenuItem value={30}>EUR</MenuItem>
+          </Select>
+        </InputValute>
+        <FormControlLabel control={<Checkbox />} label="Указана" />
+      </Box>
+    </>
   );
 }

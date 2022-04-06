@@ -21,7 +21,6 @@ const TagsResume = ({ selectedSkills, handleChangeSkills }: Props) => {
     const {
       target: { value },
     } = event;
-
     handleChangeSkills(typeof value === "string" ? value.split(",") : value);
   };
 

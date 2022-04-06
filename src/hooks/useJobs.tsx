@@ -7,12 +7,14 @@ import { setSearchesJobs } from "../store/action/setSearches";
 import { useTypeSelector } from "./useTypeSelector";
 
 import { Job, Level } from "../types/jobs";
+
 import { getJobs } from "../API/quires";
-import React from "react";
 
 type SearchType = {
   level: keyof typeof Level | "";
   skills: string[];
+  salary: number;
+  activity: string[];
 };
 
 type State = {
@@ -21,19 +23,22 @@ type State = {
   handleChangeLevel(value: keyof typeof Level): void;
   handleChangeSalary(value: number): void;
   handleChangeSkills(value: string[]): void;
+  handleSelectActivity(value: string[]): void;
 };
 
 export default function useJobs(): State {
   const [search, setSearch] = useState<SearchType>({
     level: "",
     skills: [],
+    salary: 0,
+    activity: [],
   });
   const dispatch = useDispatch();
 
   const { jobs } = useTypeSelector(state => state.jobs);
 
   useEffect(() => {
-    getJobs().then(res => dispatch(setSearchesJobs(res.data.list)));
+    getJobs(search).then(res => dispatch(setSearchesJobs(res.data.list)));
   }, [dispatch]);
 
   const handleChangeLevel = (value: keyof typeof Level | "") => {
@@ -69,11 +74,24 @@ export default function useJobs(): State {
     });
   };
 
+  const handleSelectActivity = (activity: string[]) => {
+    const newSearch = {
+      ...search,
+      activity: activity,
+    };
+    console.log(newSearch);
+    setSearch(newSearch);
+    getJobs(newSearch).then(res => {
+      dispatch(setSearchesJobs(res.data.list));
+    });
+  };
+
   return {
     list: jobs,
     search,
     handleChangeLevel,
     handleChangeSalary,
     handleChangeSkills,
+    handleSelectActivity,
   };
 }

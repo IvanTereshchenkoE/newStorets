@@ -7,8 +7,13 @@ import useJobs from "../hooks/useJobs";
 import { Content, Main, SearchPanel } from "../styles/styled";
 
 function Joblist() {
-  const { search, handleChangeLevel, handleChangeSalary, handleChangeSkills } =
-    useJobs();
+  const {
+    search,
+    handleChangeLevel,
+    handleChangeSalary,
+    handleChangeSkills,
+    handleSelectActivity,
+  } = useJobs();
   return (
     <>
       <Layout>
@@ -23,6 +28,7 @@ function Joblist() {
           <SidebarJob
             selectedLevel={search.level}
             selectedSkills={search.skills}
+            handleSelectActivity={handleSelectActivity}
             handleChangeLevel={handleChangeLevel}
             handleChangeSalary={handleChangeSalary}
             handleChangeSkills={handleChangeSkills}

@@ -15,6 +15,7 @@ type Props = {
   handleChangeLevel(param: string): void;
   handleChangeSalary(param: number): void;
   handleChangeSkills(param: string[]): void;
+  handleSelectActivity(value: string[]): void;
 };
 
 function SidebarJob({
@@ -23,12 +24,15 @@ function SidebarJob({
   handleChangeLevel,
   handleChangeSalary,
   handleChangeSkills,
+  handleSelectActivity,
 }: Props) {
   return (
     <>
       <Sitebar>
         <FormGroup>
-          <FieldOfActivity></FieldOfActivity>
+          <FieldOfActivity
+            handleSelectActivity={handleSelectActivity}
+          ></FieldOfActivity>
           <Qualification
             selectedLevel={selectedLevel}
             handleChangeLevel={handleChangeLevel}

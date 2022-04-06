@@ -1,8 +1,12 @@
 import { useEffect, useState } from "react";
+
 import { useDispatch } from "react-redux";
+
 import { getResumes } from "../API/quires";
+
 import { setResume } from "../store/action/setResume";
 import { Level, Resume } from "../store/reducers/resumeReducer";
+
 import { useTypeSelector } from "./useTypeSelector";
 
  type SearchType = {

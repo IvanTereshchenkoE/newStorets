@@ -6,6 +6,7 @@ import {
   Select,
   SelectChangeEvent,
 } from "@mui/material";
+
 import { Level } from "../../store/reducers/resumeReducer";
 
 type Props = {
@@ -17,6 +18,7 @@ const ExpiriensResume = ({ selectedLevel, handleChangeExpiriens }: Props) => {
   const handleChangeExpiriensResume = (e: SelectChangeEvent) => {
     handleChangeExpiriens(e.target.value as unknown as number);
   };
+
   return (
     <>
       <FormControl>

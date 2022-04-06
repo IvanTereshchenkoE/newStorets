@@ -1,21 +1,27 @@
 import axios from "./axios";
 import { AxiosPromise } from "axios";
-import { Level, Resume } from "../store/reducers/resumeReducer";
-import { Job } from "../types/jobs";
+import { Level } from "../store/reducers/resumeReducer";
 
-export type FilterType = {
+export type FilterResumeType = {
   experience?: number;
   level: keyof typeof Level | "";
   tags: string[];
 };
 
-export const getJobs = (queryParams: any = {}): AxiosPromise =>
+type FilterJobsType = {
+  level: keyof typeof Level | "";
+  skills: string[];
+  salary: number;
+  activity: string[];
+};
+
+export const getJobs = (queryParams: FilterJobsType): AxiosPromise =>
   axios.get("/jobs", {
     params: queryParams,
   });
 
 export const getResumes = (
-  queryParams: FilterType = {
+  queryParams: FilterResumeType = {
     level: "",
     tags: [],
     experience: 2,

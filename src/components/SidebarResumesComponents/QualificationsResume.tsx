@@ -6,6 +6,7 @@ import {
   Select,
   SelectChangeEvent,
 } from "@mui/material";
+
 import { Level } from "../../store/reducers/resumeReducer";
 
 type Props = {
@@ -17,6 +18,7 @@ const QualificationsResume = ({ selectedLevel, handleChangeLevel }: Props) => {
   const handleChangeLevelResume = (e: SelectChangeEvent) => {
     handleChangeLevel(e.target.value as string);
   };
+
   return (
     <>
       <FormControl>
