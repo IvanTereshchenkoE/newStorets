@@ -1,3 +1,4 @@
+import BasicPagination from "../components/JobsComponent/BasicPagination";
 import JobsList from "../components/JobsComponent/JobsList";
 import SearchJobs from "../components/JobsComponent/SearchJobs";
 import SortSearch from "../components/JobsComponent/SortSearch";
@@ -13,6 +14,7 @@ function Joblist() {
     handleChangeSalary,
     handleChangeSkills,
     handleSelectActivity,
+    handleChangePage,
   } = useJobs();
   return (
     <>
@@ -23,7 +25,8 @@ function Joblist() {
               <SearchJobs />
               <SortSearch />
             </SearchPanel>
-            <JobsList></JobsList>
+            <JobsList />
+            <BasicPagination handleChangePage={handleChangePage} />
           </Main>
           <SidebarJob
             selectedLevel={search.level}

@@ -7,23 +7,16 @@ import { useState } from "react";
 type ActivityNames = {
   [key: string]: string;
 };
-const ActivityObjects: ActivityNames = {};
-
-const acts = [
-  "Testing",
-  "Frontend",
-  "Design",
-  "Marketing",
-  "Administration",
-  "Backend",
-  "Analytics",
-  "Management",
-];
-{
-  /* по идеи этот массив должен с бэка прилетать*/
-}
-
-acts.map(act => (ActivityObjects[act] = act));
+const ActivityObjects: ActivityNames = {
+  Administration: "Administration",
+  Analytics: "Analytics",
+  Backend: "Backend",
+  Design: "Design",
+  Frontend: "Frontend",
+  Management: "Management",
+  Marketing: "Marketing",
+  Testing: "Testing",
+};
 
 type Props = {
   handleSelectActivity(value: string[]): void;
@@ -34,20 +27,28 @@ type ActivityType = {
 };
 
 function FieldOfActivity({ handleSelectActivity }: Props) {
-  let perListGroup: ActivityType = {};
-  acts.map(act => (perListGroup[act] = false));
-  const [listGroup, setListGroup] = useState<ActivityType>(perListGroup);
+  const [listGroup, setListGroup] = useState<ActivityType>({
+    Administration: false,
+    Analytics: false,
+    Backend: false,
+    Design: false,
+    Frontend: false,
+    Management: false,
+    Marketing: false,
+    Testing: false,
+  });
 
   return (
     <>
       <FormGroup>
         <strong>Сфера деятельности</strong>
-        {acts.map(act => (
+        {Object.keys(ActivityObjects).map(act => (
           <FormControlLabel
             key={act}
             control={
               <Checkbox
                 size="small"
+                key={act}
                 onChange={(event: React.ChangeEvent<HTMLInputElement>) => {
                   const data = {
                     ...listGroup,

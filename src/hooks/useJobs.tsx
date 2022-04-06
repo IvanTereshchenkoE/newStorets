@@ -15,6 +15,7 @@ type SearchType = {
   skills: string[];
   salary: number;
   activity: string[];
+  page: number;
 };
 
 type State = {
@@ -24,6 +25,7 @@ type State = {
   handleChangeSalary(value: number): void;
   handleChangeSkills(value: string[]): void;
   handleSelectActivity(value: string[]): void;
+  handleChangePage(pvalue: number): void;
 };
 
 export default function useJobs(): State {
@@ -32,6 +34,7 @@ export default function useJobs(): State {
     skills: [],
     salary: 0,
     activity: [],
+    page: 1,
   });
   const dispatch = useDispatch();
 
@@ -79,7 +82,16 @@ export default function useJobs(): State {
       ...search,
       activity: activity,
     };
-    console.log(newSearch);
+    setSearch(newSearch);
+    getJobs(newSearch).then(res => {
+      dispatch(setSearchesJobs(res.data.list));
+    });
+  };
+  const handleChangePage = (page: number) => {
+    const newSearch = {
+      ...search,
+      page: page,
+    };
     setSearch(newSearch);
     getJobs(newSearch).then(res => {
       dispatch(setSearchesJobs(res.data.list));
@@ -93,5 +105,6 @@ export default function useJobs(): State {
     handleChangeSalary,
     handleChangeSkills,
     handleSelectActivity,
+    handleChangePage,
   };
 }

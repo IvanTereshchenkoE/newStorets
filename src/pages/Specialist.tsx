@@ -1,3 +1,4 @@
+import BasicPagination from "../components/JobsComponent/BasicPagination";
 import Layout from "../components/Layout/Layout";
 import ResumesList from "../components/ResumeComponent/ResumesList";
 import SearchResumes from "../components/ResumeComponent/SearchResumes";
@@ -11,6 +12,7 @@ function Specialist() {
     handleChangeLevel,
     handleChangeSkills,
     handleChangeExpiriens,
+    handleChangePage,
   } = useResumes();
   return (
     <>
@@ -19,6 +21,9 @@ function Specialist() {
           <Main>
             <SearchResumes></SearchResumes>
             <ResumesList></ResumesList>
+            <BasicPagination
+              handleChangePage={handleChangePage}
+            ></BasicPagination>
           </Main>
           <SidebarResume
             selectedLevel={search.level}

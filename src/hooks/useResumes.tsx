@@ -19,6 +19,7 @@ import { useTypeSelector } from "./useTypeSelector";
    handleChangeLevel(value: keyof typeof Level): void;
    handleChangeSkills(value: string[]): void;
    handleChangeExpiriens(value: number): void;
+   handleChangePage(value: number): void;
    search: SearchType;
    list: Resume[];
  };
@@ -70,10 +71,22 @@ import { useTypeSelector } from "./useTypeSelector";
      });
    };
 
+   const handleChangePage = (page: number) => {
+     const newSearch = {
+       ...search,
+       page: page,
+     };
+     setSearch(newSearch);
+     getResumes(newSearch).then(res => {
+       dispatch(setResume(res.data.list));
+     });
+   };
+
    return {
      handleChangeLevel,
      handleChangeSkills,
      handleChangeExpiriens,
+     handleChangePage,
      list,
      search,
    };

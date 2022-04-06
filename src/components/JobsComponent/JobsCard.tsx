@@ -106,7 +106,7 @@ const JobsCard: React.FC<Props> = ({
               <Typography variant="body2">{level}</Typography>
               <Tags>
                 {activity.map(tag => (
-                  <Tag>{tag} -</Tag>
+                  <Tag key={tag}>{tag} -</Tag>
                 ))}
               </Tags>
             </MainDiscription>
