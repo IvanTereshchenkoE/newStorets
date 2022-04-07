@@ -13,6 +13,7 @@ type SearchType = {
   experience?: number;
   level: keyof typeof Level | "";
   tags: string[];
+  page: number;
 };
 
 type State = {
@@ -29,17 +30,17 @@ export const useResumes = (): State => {
   const [search, setSearch] = useState<SearchType>({
     level: "",
     tags: [],
+    page: 1,
   });
 
   const [total, setTotal] = useState<number>(0);
-  
 
   const dispatch = useDispatch();
 
   const { list } = useTypeSelector(state => state.resume);
 
   useEffect(() => {
-    getResumes().then(res => {
+    getResumes(search).then(res => {
       dispatch(setResume(res.data.list));
       setTotal(res.data.total);
     });

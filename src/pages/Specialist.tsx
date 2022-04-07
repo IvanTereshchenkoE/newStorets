@@ -24,6 +24,7 @@ function Specialist() {
             <SearchResumes></SearchResumes>
             <ResumesList></ResumesList>
             <BasicPagination
+              page={search.page}
               total={total}
               handleChangePage={handleChangePage}
             ></BasicPagination>

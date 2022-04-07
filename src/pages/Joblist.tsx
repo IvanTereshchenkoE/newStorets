@@ -30,6 +30,7 @@ function Joblist() {
             <BasicPagination
               handleChangePage={handleChangePage}
               total={total}
+              page={search.page}
             />
           </Main>
           <SidebarJob
