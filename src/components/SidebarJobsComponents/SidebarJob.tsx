@@ -1,10 +1,10 @@
 import FormGroup from "@mui/material/FormGroup";
 
 import SortByPrice from "./SortBySalary";
-import FieldOfActivity from "./FieldOfActivity";
 import Qualification from "./Qualification";
-import ProfessionalSkill from "./ProfessionalSkill";
+import FieldOfActivity from "./Fieldofactivity";
 import SearchesValute from "./SearchesValute";
+import ProfessionalSkill from "./Professionalskill";
 
 import { Sitebar } from "../../styles/styled";
 import { Level } from "../../types/jobs";
