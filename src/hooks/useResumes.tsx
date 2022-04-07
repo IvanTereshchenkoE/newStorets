@@ -32,6 +32,7 @@ export const useResumes = (): State => {
   });
 
   const [total, setTotal] = useState<number>(0);
+  
 
   const dispatch = useDispatch();
 
