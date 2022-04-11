@@ -4,6 +4,7 @@ import ResumesList from "../components/ResumeComponent/ResumesList";
 import SearchResumes from "../components/ResumeComponent/SearchResumes";
 import SidebarResume from "../components/SidebarResumesComponents/SidebarResume";
 import { useResumes } from "../hooks/useResumes";
+import { useTypeSelector } from "../hooks/useTypeSelector";
 import { Content, Main } from "../styles/styled";
 
 function Specialist() {
@@ -23,6 +24,7 @@ function Specialist() {
             <SearchResumes></SearchResumes>
             <ResumesList></ResumesList>
             <BasicPagination
+              page={search.page}
               total={total}
               handleChangePage={handleChangePage}
             ></BasicPagination>

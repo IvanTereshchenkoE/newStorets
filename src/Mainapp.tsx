@@ -5,6 +5,7 @@ import MainPage from "./pages/MainPage";
 import Specialist from "./pages/Specialist";
 import Companies from "./pages/Companies";
 import Salaries from "./pages/Salaries";
+import Profile from "./pages/Profile";
 
 const Mainapp = () => {
   return (
@@ -15,6 +16,7 @@ const Mainapp = () => {
         <Route path="/specialist" element={<Specialist />} />
         <Route path="/companies" element={<Companies />} />
         <Route path="/salaries" element={<Salaries />} />
+        <Route path="/Profile" element={<Profile />} />
       </Routes>
     </BrowserRouter>
   );

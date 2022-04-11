@@ -40,7 +40,6 @@ export default function useJobs(): State {
   });
 
   const [total, setTotal] = useState<number>(0);
-
   const dispatch = useDispatch();
 
   const { jobs } = useTypeSelector(state => state.jobs);
