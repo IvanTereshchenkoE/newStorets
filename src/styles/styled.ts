@@ -77,6 +77,5 @@ export const Content = styled.div`
 `;
 
 export const Main = styled.div`
-  flex: 1 1;
-  min-width: 0;
+  width: 720px;
 `;
