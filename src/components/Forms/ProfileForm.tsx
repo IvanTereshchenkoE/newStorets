@@ -131,8 +131,14 @@ export default function ProfileForm() {
         <InputMask
           mask="+7-(999)-999-9999"
           className={"tel"}
-          {...register("phone", { required: true })}
+          {...register("phone", {
+            required: true,
+            minLength: { value: 11, message: "11 цифр" },
+          })}
         />
+        <Error>
+          {errors?.Number && <p>{errors?.Number?.message || "Error!"}</p>}
+        </Error>
       </label>
       <button type="submit">Register</button>
     </Form>
