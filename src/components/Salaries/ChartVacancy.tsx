@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { getGraphs } from "../../API/quires";
 
 import { Column } from "@ant-design/plots";
@@ -35,9 +35,10 @@ export default function ChartVacancy() {
     { company: "Analytics", amount: 13 },
   ];
 
-  for (let i = 0; i < data.length; i++) {
-    data[i].amount = Object.values(activityCount[i])[0];
-  }
+  data.map((item, index) => {
+    item.amount = Object.values(activityCount[index])[0];
+  });
+
   const config = {
     data,
     xField: "company",

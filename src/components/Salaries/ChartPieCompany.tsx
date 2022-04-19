@@ -1,7 +1,12 @@
-import React, { useState, useEffect } from "react";
+import { useState } from "react";
 import { Pie } from "@ant-design/plots";
-import styled from "styled-components";
 import { CompanyItem } from "./CompanyItem";
+
+export type Companies = {
+  name: string;
+  value: number;
+};
+
 const ChartPieCompany = () => {
   const [companies, setCompanies] = useState([
     { name: "Twix", value: 27 },
@@ -16,7 +21,7 @@ const ChartPieCompany = () => {
     { name: "Puma", value: 25 },
   ]);
 
-  const handlePlus = (name: any) => {
+  const handlePlus = (name: string) => {
     setCompanies(
       companies.map(item => {
         if (item.name == name) {
@@ -30,9 +35,18 @@ const ChartPieCompany = () => {
     );
   };
 
-  const handleMinus = (name: any) => {
-    const item: any = companies.find(company => company.name == name);
-    item.value -= 1;
+  const handleMinus = (name: string) => {
+    setCompanies(
+      companies.map(item => {
+        if (item.name == name) {
+          return {
+            name: item.name,
+            value: item.value - 1,
+          };
+        }
+        return item;
+      })
+    );
   };
 
   const config = {
@@ -60,6 +74,7 @@ const ChartPieCompany = () => {
       <Pie data={companies} {...config} />
       {companies.map(company => (
         <CompanyItem
+          key={company.name}
           handlePlus={handlePlus}
           handleMinus={handleMinus}
           company={company}

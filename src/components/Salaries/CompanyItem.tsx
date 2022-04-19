@@ -1,6 +1,13 @@
 import React from "react";
+import { Companies } from "./ChartPieCompany";
 
-export const CompanyItem = ({ company, handlePlus, handleMinus }: any) => {
+type Props = {
+  company: Companies;
+  handlePlus(value: string): void;
+  handleMinus(value: string): void;
+};
+
+export const CompanyItem = ({ company, handlePlus, handleMinus }: Props) => {
   const [disabled, setDisabled] = React.useState(false);
 
   return (

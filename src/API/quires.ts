@@ -15,11 +15,6 @@ type FilterJobsType = {
   activity: string[];
 };
 
-type FilterGraphsType = {
-  salary_medium_per_month: number[];
-  activity_count: [{}];
-};
-
 export const getJobs = (queryParams: FilterJobsType): AxiosPromise =>
   axios.get("/jobs", {
     params: queryParams,
@@ -36,12 +31,4 @@ export const getResumes = (
     params: queryParams,
   });
 
-export const getGraphs = (
-  queryParams: FilterGraphsType = {
-    salary_medium_per_month: [],
-    activity_count: [{}],
-  }
-): AxiosPromise =>
-  axios.get("/graphs", {
-    params: queryParams,
-  });
+export const getGraphs = (): AxiosPromise => axios.get("/graphs");
