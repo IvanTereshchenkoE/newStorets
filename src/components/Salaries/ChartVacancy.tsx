@@ -23,7 +23,7 @@ export default function ChartVacancy() {
   useEffect(() => {
     getGraphs().then(res => setAactivityCount(res.data.activity_count));
   }, []);
-  const data: Data[] = [
+  let data: Data[] = [
     { company: "Backend", amount: 3 },
     { company: "Frontend", amount: 4 },
     { company: "Applications", amount: 3.5 },
@@ -38,7 +38,6 @@ export default function ChartVacancy() {
   data.map((item, index) => {
     item.amount = Object.values(activityCount[index])[0];
   });
-
   const config = {
     data,
     xField: "company",

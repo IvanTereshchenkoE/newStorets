@@ -3,26 +3,6 @@ import styled from "styled-components";
 import InputMask from "react-input-mask";
 
 
-type Data = {
-  firstName: "asdasdasdas";
-  lastName: "asdasdasdas";
-  "Family Name": "Asdasdasdas";
-  age: "20";
-  gender: "male";
-  email: "johnn.snop@gmail.com";
-  phone: "+7-(999)-075-1130";
-};
-
-const a = {
-  firstName: "asdasdasdas",
-  lastName: "asdasdasdas",
-  "Family Name": "Asdasdasdas",
-  age: "20",
-  gender: "male",
-  email: "johnn.snop@gmail.com",
-  phone: "+7-(999)-075-1130",
-};
-
 const Form = styled.form`
   max-width: 500px;
   margin: 0 auto;
