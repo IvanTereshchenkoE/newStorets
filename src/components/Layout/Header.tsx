@@ -126,7 +126,7 @@ const ResponsiveAppBar = () => {
                 Companies
               </Button>
             </Link>
-            <Link to={"/"} style={{ textDecoration: "none" }}>
+            <Link to={"/salaries"} style={{ textDecoration: "none" }}>
               <Button
                 onClick={handleCloseNavMenu}
                 sx={{ my: 2, color: "white", display: "block" }}

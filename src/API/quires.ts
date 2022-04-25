@@ -30,3 +30,5 @@ export const getResumes = (
   axios.get("/resumes", {
     params: queryParams,
   });
+
+export const getGraphs = (): AxiosPromise => axios.get("/graphs");
