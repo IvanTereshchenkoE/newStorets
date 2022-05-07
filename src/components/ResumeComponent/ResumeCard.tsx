@@ -99,7 +99,7 @@ const ResumeCard: React.FC<Props> = ({
             <MainDiscription>
               <Typography variant="body2">{level}</Typography>
               <Tags>
-                {tags.map(tag => (
+                {tags.map((tag) => (
                   <Tag>{tag} -</Tag>
                 ))}
               </Tags>

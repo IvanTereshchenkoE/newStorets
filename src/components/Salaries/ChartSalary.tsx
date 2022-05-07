@@ -5,7 +5,7 @@ import { getGraphs } from "../../API/quires";
 export default function ChartSalary() {
   const [salaryMonth, setSalaryMonth] = useState([]);
   useEffect(() => {
-    getGraphs().then(res => setSalaryMonth(res.data.salary_medium_per_month));
+    getGraphs().then((res) => setSalaryMonth(res.data.salary_medium_per_month));
   }, []);
   const data = [
     { month: "January", salary: 3 },

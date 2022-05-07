@@ -10,7 +10,7 @@ type Props = {
 };
 
 const BasicPagination = ({ handleChangePage, total, page }: Props) => {
-  let count = Math.ceil(total / 25);
+  const count = Math.ceil(total / 25);
   const handleChange = (
     event: React.ChangeEvent<unknown>,
     value: number

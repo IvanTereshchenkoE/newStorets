@@ -37,10 +37,10 @@ export const useResumes = (): State => {
 
   const dispatch = useDispatch();
 
-  const { list } = useTypeSelector(state => state.resume);
+  const { list } = useTypeSelector((state) => state.resume);
 
   useEffect(() => {
-    getResumes(search).then(res => {
+    getResumes(search).then((res) => {
       dispatch(setResume(res.data.list));
       setTotal(res.data.total);
     });
@@ -52,7 +52,7 @@ export const useResumes = (): State => {
       level: value,
     };
     setSearch(newSearch);
-    getResumes(newSearch).then(res => {
+    getResumes(newSearch).then((res) => {
       dispatch(setResume(res.data.list));
     });
   };
@@ -63,7 +63,7 @@ export const useResumes = (): State => {
       tags: tags,
     };
     setSearch(newSearch);
-    getResumes(newSearch).then(res => {
+    getResumes(newSearch).then((res) => {
       dispatch(setResume(res.data.list));
     });
   };
@@ -74,7 +74,7 @@ export const useResumes = (): State => {
       experience: value,
     };
     setSearch(newSearch);
-    getResumes(newSearch).then(res => {
+    getResumes(newSearch).then((res) => {
       dispatch(setResume(res.data.list));
     });
   };
@@ -85,7 +85,7 @@ export const useResumes = (): State => {
       page: page,
     };
     setSearch(newSearch);
-    getResumes(newSearch).then(res => {
+    getResumes(newSearch).then((res) => {
       dispatch(setResume(res.data.list));
     });
   };

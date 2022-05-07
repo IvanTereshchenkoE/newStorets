@@ -4,14 +4,16 @@ import Autocomplete from "@mui/material/Autocomplete";
 import { useTypeSelector } from "../../hooks/useTypeSelector";
 
 export default function SearchResumes() {
-  const { resume } = useTypeSelector(state => state);
+  const { resume } = useTypeSelector((state) => state);
   return (
     <Stack spacing={2} sx={{ width: 300 }}>
       <Autocomplete
         id="free-solo-demo"
         freeSolo
-        options={resume.list.map(job => job.name)}
-        renderInput={params => <TextField {...params} label="Searches jobs" />}
+        options={resume.list.map((job) => job.name)}
+        renderInput={(params) => (
+          <TextField {...params} label="Searches jobs" />
+        )}
       />
     </Stack>
   );

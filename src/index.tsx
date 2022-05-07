@@ -6,4 +6,9 @@ import Mainapp from "./Mainapp";
 
 import { store } from "./store";
 
-ReactDOM.render(<Provider store={store}><Mainapp /></Provider>, document.getElementById("root"));
+ReactDOM.render(
+  <Provider store={store}>
+    <Mainapp />
+  </Provider>,
+  document.getElementById("root")
+);

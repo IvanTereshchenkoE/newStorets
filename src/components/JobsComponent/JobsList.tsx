@@ -15,7 +15,7 @@ const JobsList = () => {
   return (
     <>
       <List>
-        {list.map(job => (
+        {list.map((job) => (
           <JobsCard
             key={job.id}
             id={job.id}

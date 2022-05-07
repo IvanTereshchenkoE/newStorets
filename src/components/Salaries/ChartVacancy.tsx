@@ -21,9 +21,9 @@ export default function ChartVacancy() {
     { Analytics: 0 },
   ]);
   useEffect(() => {
-    getGraphs().then(res => setAactivityCount(res.data.activity_count));
+    getGraphs().then((res) => setAactivityCount(res.data.activity_count));
   }, []);
-  let data: Data[] = [
+  const data: Data[] = [
     { company: "Backend", amount: 3 },
     { company: "Frontend", amount: 4 },
     { company: "Applications", amount: 3.5 },
