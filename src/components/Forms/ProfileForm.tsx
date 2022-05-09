@@ -40,7 +40,7 @@ export default function ProfileForm() {
     mode: "onBlur",
   });
 
-  const onSubmit = (data: any) => {
+  const onSubmit = (data: unknown) => {
     console.log(JSON.stringify(data));
     reset();
   };

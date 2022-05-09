@@ -5,6 +5,7 @@ const initialState: JobsState = {
 };
 
 export const jobsReducer = (
+  // eslint-disable-next-line @typescript-eslint/default-param-last
   state: JobsState = initialState,
   action: FetchJobsAction
 ): JobsState => {

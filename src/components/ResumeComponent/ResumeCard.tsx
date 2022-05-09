@@ -1,9 +1,9 @@
+/* eslint-disable prettier/prettier */
 import * as React from "react";
 
 import styled from "styled-components";
 
 import CardMedia from "@mui/material/CardMedia";
-import Box from "@mui/material/Box";
 import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
 import Typography from "@mui/material/Typography";
@@ -35,15 +35,6 @@ const MainDiscription = styled.div`
   flex-direction: column;
 `;
 
-const bull = (
-  <Box
-    component="span"
-    sx={{ display: "inline-block", mx: "2px", transform: "scale(0.8)" }}
-  >
-    •
-  </Box>
-);
-
 interface Props {
   id: number;
   name: string;
@@ -54,7 +45,6 @@ interface Props {
 }
 
 const ResumeCard: React.FC<Props> = ({
-  id,
   name,
   experience,
   level,
@@ -99,7 +89,7 @@ const ResumeCard: React.FC<Props> = ({
             <MainDiscription>
               <Typography variant="body2">{level}</Typography>
               <Tags>
-                {tags.map((tag) => (
+                {tags.map(tag => (
                   <Tag>{tag} -</Tag>
                 ))}
               </Tags>

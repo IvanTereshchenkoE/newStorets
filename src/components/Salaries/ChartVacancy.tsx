@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { getGraphs } from "../../API/quires";
 
+// eslint-disable-next-line import/no-extraneous-dependencies
 import { Column } from "@ant-design/plots";
 
 type Data = {

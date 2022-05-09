@@ -1,4 +1,4 @@
-import { FormGroup, SelectChangeEvent } from "@mui/material";
+import { FormGroup } from "@mui/material";
 
 import { Level } from "../../store/reducers/resumeReducer";
 

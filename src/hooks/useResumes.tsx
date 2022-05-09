@@ -40,11 +40,12 @@ export const useResumes = (): State => {
   const { list } = useTypeSelector((state) => state.resume);
 
   useEffect(() => {
-    getResumes(search).then((res) => {
+    // eslint-disable-next-line prettier/prettier
+    getResumes(search).then(res => {
       dispatch(setResume(res.data.list));
       setTotal(res.data.total);
     });
-  }, [dispatch]);
+  }, [dispatch, search]);
 
   const handleChangeLevel = (value: keyof typeof Level | "") => {
     const newSearch = {

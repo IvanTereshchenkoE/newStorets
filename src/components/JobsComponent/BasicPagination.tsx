@@ -1,8 +1,6 @@
 import Pagination from "@mui/material/Pagination";
 import Stack from "@mui/material/Stack";
 
-import { useState } from "react";
-
 type Props = {
   handleChangePage(value: number): void;
   total: number;

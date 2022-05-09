@@ -4,6 +4,7 @@ const initialState: State = {
   list: [],
 };
 
+// eslint-disable-next-line @typescript-eslint/default-param-last
 export const resumesReducer = (state: State = initialState, action: Action) => {
   switch (action.type) {
     case SET_RESUME:
@@ -36,9 +37,9 @@ export type Resume = {
   avatar: string;
 };
 
-export type setResumeAction = {
+export type SetResumeAction = {
   type: typeof SET_RESUME;
   list: Resume[];
 };
 
-export type Action = setResumeAction;
+export type Action = SetResumeAction;

@@ -45,11 +45,12 @@ export default function useJobs(): State {
   const { jobs } = useTypeSelector((state) => state.jobs);
 
   useEffect(() => {
-    getJobs(search).then((res) => {
+    // eslint-disable-next-line prettier/prettier
+    getJobs(search).then(res => {
       dispatch(setSearchesJobs(res.data.list));
       setTotal(res.data.total);
     });
-  }, [dispatch]);
+  }, [dispatch, search]);
 
   const handleChangeLevel = (value: keyof typeof Level | "") => {
     const newSearch = {

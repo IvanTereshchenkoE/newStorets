@@ -3,11 +3,6 @@ import styled from "styled-components";
 import JobsCard from "./JobsCard";
 
 import useJobs from "../../hooks/useJobs";
-import { Job } from "../../types/jobs";
-import { useTypeSelector } from "../../hooks/useTypeSelector";
-import { getJobs } from "../../API/quires";
-import { Pagination, Stack } from "@mui/material";
-
 const List = styled.div``;
 
 const JobsList = () => {

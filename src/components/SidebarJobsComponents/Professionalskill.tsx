@@ -6,6 +6,7 @@ import {
   MenuItem,
   OutlinedInput,
   Select,
+  // eslint-disable-next-line import/named
   SelectChangeEvent,
 } from "@mui/material";
 
