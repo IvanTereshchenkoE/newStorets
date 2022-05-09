@@ -37,14 +37,15 @@ export const useResumes = (): State => {
 
   const dispatch = useDispatch();
 
-  const { list } = useTypeSelector(state => state.resume);
+  const { list } = useTypeSelector((state) => state.resume);
 
   useEffect(() => {
+    // eslint-disable-next-line prettier/prettier
     getResumes(search).then(res => {
       dispatch(setResume(res.data.list));
       setTotal(res.data.total);
     });
-  }, [dispatch]);
+  }, [dispatch, search]);
 
   const handleChangeLevel = (value: keyof typeof Level | "") => {
     const newSearch = {
@@ -52,7 +53,7 @@ export const useResumes = (): State => {
       level: value,
     };
     setSearch(newSearch);
-    getResumes(newSearch).then(res => {
+    getResumes(newSearch).then((res) => {
       dispatch(setResume(res.data.list));
     });
   };
@@ -63,7 +64,7 @@ export const useResumes = (): State => {
       tags: tags,
     };
     setSearch(newSearch);
-    getResumes(newSearch).then(res => {
+    getResumes(newSearch).then((res) => {
       dispatch(setResume(res.data.list));
     });
   };
@@ -74,7 +75,7 @@ export const useResumes = (): State => {
       experience: value,
     };
     setSearch(newSearch);
-    getResumes(newSearch).then(res => {
+    getResumes(newSearch).then((res) => {
       dispatch(setResume(res.data.list));
     });
   };
@@ -85,7 +86,7 @@ export const useResumes = (): State => {
       page: page,
     };
     setSearch(newSearch);
-    getResumes(newSearch).then(res => {
+    getResumes(newSearch).then((res) => {
       dispatch(setResume(res.data.list));
     });
   };

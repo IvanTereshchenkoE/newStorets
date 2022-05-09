@@ -9,7 +9,7 @@ type Props = {
 };
 
 export default function SortByPrice({ handleChangeSalary }: Props) {
-  const [age, setAge] = React.useState();
+  const [age] = React.useState();
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>): void => {
     handleChangeSalary(Number(event.target.value));
   };

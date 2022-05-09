@@ -42,7 +42,7 @@ function FieldOfActivity({ handleSelectActivity }: Props) {
     <>
       <FormGroup>
         <strong>Сфера деятельности</strong>
-        {Object.keys(ActivityObjects).map(act => (
+        {Object.keys(ActivityObjects).map((act) => (
           <FormControlLabel
             key={act}
             control={
@@ -55,7 +55,7 @@ function FieldOfActivity({ handleSelectActivity }: Props) {
                     [act]: event.target.checked,
                   };
                   setListGroup(data);
-                  let selectedActivity = Object.keys(data).filter(key => {
+                  const selectedActivity = Object.keys(data).filter((key) => {
                     return data[key] === true;
                   });
                   handleSelectActivity(selectedActivity);

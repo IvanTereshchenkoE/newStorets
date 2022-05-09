@@ -1,4 +1,5 @@
 import { useState } from "react";
+// eslint-disable-next-line import/no-extraneous-dependencies
 import { Pie } from "@ant-design/plots";
 import { CompanyItem } from "./CompanyItem";
 
@@ -23,7 +24,7 @@ const ChartPieCompany = () => {
 
   const handlePlus = (name: string) => {
     setCompanies(
-      companies.map(item => {
+      companies.map((item) => {
         if (item.name == name) {
           return {
             name: item.name,
@@ -37,7 +38,7 @@ const ChartPieCompany = () => {
 
   const handleMinus = (name: string) => {
     setCompanies(
-      companies.map(item => {
+      companies.map((item) => {
         if (item.name == name) {
           return {
             name: item.name,
@@ -72,7 +73,7 @@ const ChartPieCompany = () => {
   return (
     <>
       <Pie data={companies} {...config} />
-      {companies.map(company => (
+      {companies.map((company) => (
         <CompanyItem
           key={company.name}
           handlePlus={handlePlus}

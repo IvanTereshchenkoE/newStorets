@@ -9,7 +9,7 @@ const ResumesList = () => {
   const { list } = useResumes();
   return (
     <List>
-      {list.map(resume => (
+      {list.map((resume) => (
         <ResumeCard
           key={resume.id}
           id={resume.id}

@@ -42,14 +42,15 @@ export default function useJobs(): State {
   const [total, setTotal] = useState<number>(0);
   const dispatch = useDispatch();
 
-  const { jobs } = useTypeSelector(state => state.jobs);
+  const { jobs } = useTypeSelector((state) => state.jobs);
 
   useEffect(() => {
+    // eslint-disable-next-line prettier/prettier
     getJobs(search).then(res => {
       dispatch(setSearchesJobs(res.data.list));
       setTotal(res.data.total);
     });
-  }, [dispatch]);
+  }, [dispatch, search]);
 
   const handleChangeLevel = (value: keyof typeof Level | "") => {
     const newSearch = {
@@ -57,7 +58,7 @@ export default function useJobs(): State {
       level: value,
     };
     setSearch(newSearch);
-    getJobs(newSearch).then(res => {
+    getJobs(newSearch).then((res) => {
       dispatch(setSearchesJobs(res.data.list));
     });
   };
@@ -68,7 +69,7 @@ export default function useJobs(): State {
       salary: value,
     };
     setSearch(newSearch);
-    getJobs(newSearch).then(res => {
+    getJobs(newSearch).then((res) => {
       dispatch(setSearchesJobs(res.data.list));
     });
   };
@@ -79,7 +80,7 @@ export default function useJobs(): State {
       skills: skills,
     };
     setSearch(newSearch);
-    getJobs(newSearch).then(res => {
+    getJobs(newSearch).then((res) => {
       dispatch(setSearchesJobs(res.data.list));
     });
   };
@@ -90,7 +91,7 @@ export default function useJobs(): State {
       activity: activity,
     };
     setSearch(newSearch);
-    getJobs(newSearch).then(res => {
+    getJobs(newSearch).then((res) => {
       dispatch(setSearchesJobs(res.data.list));
     });
   };
@@ -100,7 +101,7 @@ export default function useJobs(): State {
       page: page,
     };
     setSearch(newSearch);
-    getJobs(newSearch).then(res => {
+    getJobs(newSearch).then((res) => {
       dispatch(setSearchesJobs(res.data.list));
     });
   };

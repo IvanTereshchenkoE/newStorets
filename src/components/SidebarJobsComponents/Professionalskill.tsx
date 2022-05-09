@@ -6,6 +6,7 @@ import {
   MenuItem,
   OutlinedInput,
   Select,
+  // eslint-disable-next-line import/named
   SelectChangeEvent,
 } from "@mui/material";
 
@@ -49,9 +50,9 @@ const ProfessionalSkill = ({ selectedSkills, handleChangeSkills }: Props) => {
           value={selectedSkills}
           onChange={handleChangeSkillsJob}
           input={<OutlinedInput />}
-          renderValue={selected => selected.join(", ")}
+          renderValue={(selected) => selected.join(", ")}
         >
-          {skills.map(skill => (
+          {skills.map((skill) => (
             <MenuItem key={skill} value={skill}>
               <Checkbox checked={selectedSkills.indexOf(skill) > -1} />
               <ListItemText primary={skill} />

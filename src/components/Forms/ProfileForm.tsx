@@ -2,7 +2,6 @@ import { useForm } from "react-hook-form";
 import styled from "styled-components";
 import InputMask from "react-input-mask";
 
-
 const Form = styled.form`
   max-width: 500px;
   margin: 0 auto;
@@ -41,7 +40,7 @@ export default function ProfileForm() {
     mode: "onBlur",
   });
 
-  const onSubmit = (data: any) => {
+  const onSubmit = (data: unknown) => {
     console.log(JSON.stringify(data));
     reset();
   };

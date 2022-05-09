@@ -6,6 +6,7 @@ import {
   MenuItem,
   OutlinedInput,
   Select,
+  // eslint-disable-next-line import/named
   SelectChangeEvent,
 } from "@mui/material";
 
@@ -37,9 +38,9 @@ const TagsResume = ({ selectedSkills, handleChangeSkills }: Props) => {
           value={selectedSkills}
           onChange={handleChangeTagsResume}
           input={<OutlinedInput />}
-          renderValue={selected => selected.join(", ")}
+          renderValue={(selected) => selected.join(", ")}
         >
-          {tags.map(tag => (
+          {tags.map((tag) => (
             <MenuItem key={tag} value={tag}>
               <Checkbox checked={selectedSkills.indexOf(tag) > -1} />
               <ListItemText primary={tag} />
